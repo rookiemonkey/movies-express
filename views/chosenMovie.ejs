@@ -1,0 +1,37 @@
+<%- include("partials/header") %>
+
+<article class="chosenMovieContainer">
+    <div id="contentContainer">
+        <div id="imageContainer">
+            <img src="<%= chosenMovie.Poster %>" onError="this.onerror=null; this.src='/images/noimage.png';" alt="<%= chosenMovie.Title %>">
+        </div>
+        <div id="informationContainer">
+            <div id="titleContainer">
+                <h1><strong><%= chosenMovie.Title %></strong></h1>
+            </div>
+            </br>
+            <ul>
+                <li><span>Year:</span> <%= chosenMovie.Year %></li>
+                <li><span>Released:</span> <%= chosenMovie.Released %></li>
+                <li><span>Genre:</span> <%= chosenMovie.Genre %></li>
+                <li><span>Director:</span> <%= chosenMovie.Director %></li>
+                <li><span>Actors:</span> <%= chosenMovie.Actors  %></li>
+                <li><span>Plot:</span> <%= chosenMovie.Plot %></li>
+                <% if (chosenMovie.hasOwnProperty("Ratings") && chosenMovie.Ratings.length > 0) { %> 
+                <li><span>Ratings:</span> <%= chosenMovie.Ratings[0].Source %> 
+                        <%= chosenMovie.Ratings[0].Value %></li>
+                <% }; %> 
+            </br>
+                <a id="searchAgainBtn" class="waves-effect waves-light btn" href="/">Search Again  &nbsp <i class="fas fa-search"></i></a>
+                <a id="searchAgainBtn" class="waves-effect waves-light btn" onclick="goBack()">Go back  &nbsp <i class="fas fa-arrow-circle-left"></i></a>
+                <script>
+                    function goBack() {
+                      window.history.back();
+                    }
+                </script>
+            </ul>
+        </div>
+    </div>
+</article>
+
+<%- include("partials/footer") %>

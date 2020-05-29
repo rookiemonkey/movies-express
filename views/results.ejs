@@ -1,0 +1,36 @@
+<%- include("partials/header") %>
+
+<% let titles = []; %> 
+<% movies.forEach(movie => { %> 
+<% movieTitle = movie.Title %> 
+<% titles.push(movieTitle.split(" ").join("").replace(/\W/, "")); %> 
+<% }); %> 
+
+<section>
+    <header id="headerSection">
+        <h1>search results for: "<span><%= term %></span>" </h1>
+        <h5>Total number of results: <%= totalResults %> </h5>
+    </header>
+    <div id="cardSection">
+        <% movies.forEach((movie, i) => { %> 
+        <article id="movieCard">
+            <div id="posterContainer">
+                <img src="<%= movie.Poster %>" onError="this.onerror=null; this.src='/images/noimage.png';" alt="<%= movie.Title%>">
+            </div>
+            <div id="detailsContainer">
+                <h6><%= movie.Title %></h6>
+                <span>Year: <%= movie.Year %></span>
+                <div id="buttonContainer">
+                    <a href="/<%= movie.imdbID %>/<%= titles[i] %>" class="waves-effect waves-light btn">Details</a>
+                </div>
+            </div>
+        </article>
+        <% }); %> 
+    </div>
+    <div id="searchSection">
+        <a id="searchButton" class="waves-effect waves-light btn-large" href="/">Search Again  &nbsp <i class="fas fa-search"></i></a>
+        <a id="NextButton" class="waves-effect waves-light btn-large" href="/<%= term %>/page/<%= pageNumber %>">Next Page &nbsp <i class="fas fa-arrow-circle-right"></i></a>
+    </div>
+</section>
+
+<%- include("partials/footer") %>

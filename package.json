@@ -1,0 +1,21 @@
+{
+  "name": "movies",
+  "version": "1.0.0",
+  "description": "udemy project movies database",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "keywords": [
+    "movies"
+  ],
+  "author": "Kevin Basina",
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^3.1.3",
+    "express": "^4.17.1",
+    "request": "^2.88.2",
+    "body-parser": "^1.19.0"
+  }
+}
