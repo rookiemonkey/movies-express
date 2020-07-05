@@ -27,7 +27,7 @@ app.get("/results", (req, res) => {
     let url = "http://www.omdbapi.com/?apikey=f4de5974&s=" + searchTerm;
         request(url, (error, response, body) => {
             let datas = JSON.parse(body);
-            if (datas.Response) {
+            if (!datas.Error) {
                 res.render("results", {
                     movies: datas.Search,
                     term: searchTerm,
@@ -68,7 +68,7 @@ app.get("/:id/:moviename", (req, res) => {
             let data = JSON.parse(body);
             res.render("chosenMovie", { chosenMovie: data});
         } else {
-            console.error(error);
+            res.render("searchError");
         }
     });
 });
