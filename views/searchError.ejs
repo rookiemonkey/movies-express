@@ -3,8 +3,8 @@
 <header class="bannerContainer">
 
 <div class="formContainer" id="formContainer">
-    <p style="color: red; font-family: Century Gothic;">Unfortunately, you've reached the last page of the results </p>
-    <p style="color: red; font-family: Century Gothic; margin-bottom: 20px;">or we do not have anything that matches your query.</p>
+    <p class="Error" style="color: red; font-family: Century Gothic;">Unfortunately, you've reached the last page of the results </p>
+    <p class="Error" style="color: red; font-family: Century Gothic; margin-bottom: 20px;">or we do not have anything that matches your query.</p>
 
     <h1>Movies <strong>DB</strong></h1>
     <span>The <strong>largest</strong> movie information database</span>
@@ -14,6 +14,13 @@
         <button class="waves-effect waves-light btn">Search</button>
     </form>
 </div>
+
+<script>
+    setTimeout(() => {
+        const p = new Array(...document.querySelectorAll('p.Error'));
+        p.forEach(e => { e.style.display = 'none' })
+    }, 5000)
+</script>
 
 </header>
 
