@@ -64,7 +64,7 @@ app.get("/:id/:moviename", (req, res) => {
     let id = req.params.id;
     let url = "http://www.omdbapi.com/?apikey=f4de5974&i=" + id;
     request(url, (error, response, body) => {
-        if(!error || response.statusCode === 200) {
+        if(!JSON.parse(response.body).Error) {
             let data = JSON.parse(body);
             res.render("chosenMovie", { chosenMovie: data});
         } else {
