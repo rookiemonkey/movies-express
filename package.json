@@ -4,8 +4,8 @@
   "description": "udemy project movies database",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "keywords": [
     "movies"
@@ -17,5 +17,8 @@
     "express": "^4.17.1",
     "request": "^2.88.2",
     "body-parser": "^1.19.0"
+  },
+  "devDependencies": {  
+    "nodemon": "^2.0.4"
   }
 }
